@@ -1,0 +1,116 @@
+body {
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(255, 131, 61) 0%,
+    rgb(249, 183, 23) 90%
+  );
+}
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px 60px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 180px;
+}
+h1 {
+  display: block;
+  text-align: center;
+  font-family: "Montserrat Alternates", sans-serif;
+  color: #473410;
+  opacity: 0.5;
+}
+form {
+  display: block;
+  text-align: center;
+  padding: 10px;
+  padding-bottom: 40px;
+  line-height: 40px;
+  font-size: 18px;
+  font-family: "Montserrat Alternates", sans-serif;
+}
+input {
+  background-color: transparent;
+  border-radius: 100px;
+  border: solid 1px #ef8437;
+  color: #473410;
+  opacity: 0.7;
+}
+.city,
+.temperature {
+  color: #ef8437;
+  font-family: "Volkhov", serif;
+  text-align: left;
+}
+.city {
+  font-size: 42px;
+}
+.temperature {
+  font-size: 62px;
+  padding-top: 40px;
+}
+a {
+  font-size: 12px;
+}
+
+.feelsLike,
+.date {
+  color: #473410;
+  opacity: 0.7;
+  font-family: "Montserrat Alternates", sans-serif;
+  padding-top: 8px;
+}
+.feelsLike {
+  padding-left: 20px;
+  text-align: right;
+}
+.date {
+  text-align: left;
+}
+.sunIcon {
+  color: #ffc505;
+  font-size: 84px;
+}
+.forecastDate {
+  color: #473410;
+  opacity: 0.7;
+  font-family: "Montserrat Alternates", sans-serif;
+  text-align: center;
+  font-size: 14px;
+}
+.forecastTemperature {
+  font-family: "Volkhov", serif;
+  font-size: 32px;
+}
+.forecastSunIcon,
+.forecastCloudyIcon,
+.forecastRain {
+  opacity: 0.75;
+  font-size: 62px;
+}
+.forecastSunIcon {
+  color: #ffc505;
+}
+.forecastCloudyIcon {
+  color: #3860b8;
+}
+
+.forecastRain {
+  color: #244282;
+}
+.carousel-item {
+  padding: 40px;
+}
+.forecastRow,
+.time {
+  color: #473410;
+  opacity: 0.8;
+  font-family: "Montserrat Alternates", sans-serif;
+  text-align: center;
+  font-size: 12px;
+}
+.forecastRow {
+  padding: 60px;
+}
+.time {
+  padding-top: 45px;
+}
