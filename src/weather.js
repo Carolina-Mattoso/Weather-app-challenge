@@ -22,17 +22,15 @@ if (currentMinutes < 10) {
 
 dateDisplayHeading.innerHTML = `${weekDays} ${currentHour}:${currentMinutes}`;
 
+
 function updateCity(event) {
   event.preventDefault();
   let cityInput = document.querySelector("#city-input");
-  let cityHeading = document.getElementsByClassName("currentCity")[0];
-  cityHeading.innerHTML = `${cityInput.value}`;
+  document.getElementsByClassName("currentCity")[0].innerHTML = `${cityInput.value}`;
 }
 
 let form = document.querySelector("#city-form");
 form.addEventListener("submit", updateCity);
-
-//Week 5
 
 function alertTemperature(response) {
   let temp = Math.round(response.data.main.temp);
@@ -53,20 +51,30 @@ function alertPosition(position) {
 
 function updateTemperature(response) {
   let temp = Math.round(response.data.main.temp);
-  let searchtemperature = document.querySelector("#celsiusTemperature");
-  searchtemperature.innerHTML = `${temp}º`;
+  let feelsLike = Math.round(response.data.main.feels_like);
+  let humidity = response.data.main.humidity;
+  let wind = Math.round(response.data.wind.speed);
+  document.querySelector("#feelsLikeDisplay").innerHTML = `Feels like ${feelsLike}º`;
+  document.querySelector("#celsiusTemperature").innerHTML = `${temp}º`;
+  document.querySelector("#humidity").innerHTML = `Humidity: ${humidity}%`;
+  document.querySelector("#wind").innerHTML = `Wind: ${wind} km/h`
+  
 }
 
-function getTemperature(event) {
+function searchTemperature(city) {
+    let apiKey = "ab8e7ef210556986d1c9a75d6007b825";
+    let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather?";
+    let unit = "metric";
+    let apiUrl = `${apiEndpoint}q=${city.value}&appid=${apiKey}&units=${unit}`;
+    axios.get(apiUrl).then(updateTemperature);
+}
+
+function handleSubmit(event) {
   event.preventDefault();
   let city = document.querySelector("#city-input");
-  let apiKey = "ab8e7ef210556986d1c9a75d6007b825";
-  let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather?";
-  let unit = "metric";
-  let apiUrl = `${apiEndpoint}q=${city.value}&appid=${apiKey}&units=${unit}`;
-
-  axios.get(apiUrl).then(updateTemperature);
+  searchTemperature(city);
 }
 
 navigator.geolocation.getCurrentPosition(alertPosition);
-form.addEventListener("submit", getTemperature);
+form.addEventListener("submit", handleSubmit);
+
