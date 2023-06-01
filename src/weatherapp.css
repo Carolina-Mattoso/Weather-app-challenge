@@ -115,3 +115,13 @@ a {
 .time {
   padding-top: 45px;
 }
+.code {
+  display: block;
+  margin: 0 auto;
+  font-family: "Montserrat Alternates", sans-serif;
+  text-align: center;
+  font-size: 12px;
+  color: #473410;
+  opacity: 0.8;
+
+}
